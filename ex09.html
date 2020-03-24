@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alfandega</title>
+</head>
+<body>
+  <h1>Sistema de verificação de Nacionalide</h1>
+  Informe país de origem: <input type="text" name="txtp" id="txtp">
+  <input type="button" value="Consultar" onclick="consultar()">
+  <div id="res">
+
+  </div>
+  <script>
+    function consultar(){
+      var pais = window.document.getElementById('txtp')
+      var res = window.document.getElementById('res')
+      respost = String(pais.value)
+      res.innerHTML = `<p>Seu pais de origem é: ${respost}</p>`
+      
+      if (respost == 'Brasil') {
+        res.innerHTML += `<p>Você é Brasileiro!</p>`
+      } else {
+        res.innerHTML += `<p>Você é Estrangeiro!</p>`
+        res.innerHTML += `<p>Sejá <strong>Bem Vindo!</stong></p>`
+
+      }
+    } 
+  </script>
+</body>
+</html>
