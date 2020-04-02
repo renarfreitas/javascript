@@ -1,0 +1,4 @@
+Variáveis Compostas
+Array ou Vetor: è uma variável que tem vários elementos cada elemento é composto por seu valor e uma chave de identifcação.
+Declaração em javascript:
+let a = []
