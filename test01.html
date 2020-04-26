@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste JavaScript</title>
+</head>
+<body>
+  <h1>Acenda a lâmpada</h1>
+  <img src="_imagens/lampada-apagada.jpg" id="luz" alt="lâmpada" onmousemove="acendeLampada()" onmouseout="apagaLampada()" onclick="quebraLampada()">
+  <script>
+    function acendeLampada () {
+      document.getElementById("luz").src = "_imagens/lampada-acesa.jpg"
+    }
+    function apagaLampada () {
+      document.getElementById("luz").src = "_imagens/lampada-apagada.jpg"
+    }
+    function quebraLampada () {
+      document.getElementById("luz").src = "_imagens/lampada-quebrada.jpg"
+    }
+  </script>
+</body>
+</html>
