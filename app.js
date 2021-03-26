@@ -5,16 +5,13 @@
     o novo array no console.
 */
 
-const randomNumbers = [10, 30, 15, 25, 50, 40, 5]
+const randomNumbers = [10, 30, 15, 25, 50, 40, 5] 
 
-const numbersImpares = randomNumbers.map(number => {
-  if (number % 2 != 0) {
-    return number
+const getOddNumbers = item => item % 2 != 0
 
-  }
-})
+const numbersIpar = randomNumbers.filter( getOddNumbers )
 
-console.log(randomNumbers, numbersImpares)
+console.log(numbersIpar)
 
 /*
   02
@@ -24,9 +21,12 @@ console.log(randomNumbers, numbersImpares)
 
 const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691]
 
-const numberUnderThan501 = crazyNumbers.filter(item => item < 501)
+const countNumbersLessThan501 = (accumulator, crazyNumbers) => 
+  crazyNumbers < 501 ? ++accumulator : accumulator
 
-console.log(crazyNumbers, numberUnderThan501)
+const numbersLessthan501 = crazyNumbers.reduce(countNumbersLessThan501, 0)
+
+console.log(numbersLessthan501)
 /*
   03
 
@@ -36,9 +36,9 @@ console.log(crazyNumbers, numberUnderThan501)
 
 const numbers = [5, 7, 3]
 
-const quartNumbers = numbers.filter(item => (item**item))
+const quarterNumbers = numbers.map(number => number ** 2 )
 
-console.log(numbers, quartNumbers)
+console.log(quarterNumbers)
 
 
 /*
@@ -62,15 +62,9 @@ const tarantinoMovies = [
   { name: 'Kill Bill: Volume 1', release: 2003 }
 ]
 
-const newsMovies = tarantinoMovies.map(movies => {
-  if (movies.release <= 2000){
-    return {name: movies.name, release: movies.release 
-    }
-    return movies
-  }
-})
-console.log(newsMovies)
+const newsMovies = tarantinoMovies.filter (({ release }) => release < 2000)
 
+console.log(newsMovies)
 /*
   05
 
@@ -87,15 +81,10 @@ const tvShows = [
   { name: 'House M.D.', releaseYear: 2004 },
   { name: 'Watchmen', releaseYear: 2019 }
 ]
-const tvShowsName = tvShows.map(series => {
-  if (series.name) {
-    return { name: series.name
-    }
-    return series
-  }
-})
-console.log(tvShowsName)
 
+const tvShowsName = tvShows.map(({ name }) => name ) 
+
+console.log(tvShowsName)
 /*
   06
 
@@ -115,16 +104,12 @@ const cart = [
   { name: 'Death Stranding', price: 149.99 }
 ]
 
-const movieName = cart.filter(movie => {
-  if (movie.name) {
-    return { name: movie.name }
-  }
-  return movie
-})
-console.log("/*", movieName[0], "*/")
-
 /*
   - Nome 1
   - Nome 2
   - Nome 3
 */
+
+const productList = cart.reduce((accumulator, { name }) => `${accumulator}- ${name}\n`, '')
+
+console.log(productList)
